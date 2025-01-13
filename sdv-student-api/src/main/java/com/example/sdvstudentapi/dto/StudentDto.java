@@ -13,4 +13,6 @@ public class StudentDto {
     private String gender;
 
     private Long schoolId;
+
+    private SchoolDto school = null;
 }

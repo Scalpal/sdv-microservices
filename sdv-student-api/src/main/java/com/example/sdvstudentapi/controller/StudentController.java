@@ -1,11 +1,13 @@
 package com.example.sdvstudentapi.controller;
 
+import com.example.sdvstudentapi.dto.SchoolDto;
 import com.example.sdvstudentapi.dto.StudentDto;
 import com.example.sdvstudentapi.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -15,9 +17,11 @@ public class StudentController {
 
     @Autowired
     private final StudentService studentService;
+    private final RestTemplate restTemplate;
 
-    public StudentController(StudentService studentService) {
+    public StudentController(StudentService studentService, RestTemplate restTemplate) {
         this.studentService = studentService;
+        this.restTemplate = restTemplate;
     }
 
     @GetMapping()
@@ -27,7 +31,16 @@ public class StudentController {
 
     @GetMapping("/{studentId}")
     public ResponseEntity<StudentDto> getStudent(@PathVariable String studentId) {
-        return new ResponseEntity<>(studentService.getStudent(studentId), HttpStatus.OK);
+        StudentDto student = studentService.getStudent(studentId);
+
+        String url = "http://localhost:8080/api/school/" + student.getSchoolId();
+        SchoolDto school = restTemplate.getForObject(url, SchoolDto.class);
+
+        if(school != null) {
+            student.setSchool(school);
+        }
+
+        return new ResponseEntity<>(student, HttpStatus.OK);
     }
 
     @PostMapping()
