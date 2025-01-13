@@ -1,4 +1,4 @@
-package com.example.sdvschoolapi.service.impl;
+package com.example.sdvschoolapi.service;
 
 import com.example.sdvschoolapi.dto.SchoolDto;
 

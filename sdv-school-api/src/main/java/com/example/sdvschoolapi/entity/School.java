@@ -1,7 +1,6 @@
 package com.example.sdvschoolapi.entity;
 
 import jakarta.persistence.*;
-import jdk.jfr.DataAmount;
 import lombok.*;
 
 @Entity
@@ -16,4 +15,8 @@ public class School {
     private Long id;
 
     private String name;
+
+    private String adress;
+
+    private String directorName;
 }

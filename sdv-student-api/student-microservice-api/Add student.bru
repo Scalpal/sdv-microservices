@@ -1,0 +1,17 @@
+meta {
+  name: Add student
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{localhost2}}/api/student
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "parmentier"
+  }
+}

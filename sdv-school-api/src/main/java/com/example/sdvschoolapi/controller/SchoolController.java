@@ -1,23 +1,24 @@
 package com.example.sdvschoolapi.controller;
 
 import com.example.sdvschoolapi.dto.SchoolDto;
-import com.example.sdvschoolapi.service.impl.SchoolService;
+import com.example.sdvschoolapi.service.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/school")
 public class SchoolController {
-
-    @Autowired
     private final SchoolService schoolService;
+    private final RestTemplate restTemplate;
 
-    public SchoolController(SchoolService schoolService) {
+    public SchoolController(SchoolService schoolService, RestTemplate restTemplate) {
         this.schoolService = schoolService;
+        this.restTemplate = restTemplate;
     }
 
     @GetMapping()

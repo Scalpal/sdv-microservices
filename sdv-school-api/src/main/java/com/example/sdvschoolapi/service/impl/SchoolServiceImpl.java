@@ -4,6 +4,7 @@ import com.example.sdvschoolapi.dto.SchoolDto;
 import com.example.sdvschoolapi.entity.School;
 import com.example.sdvschoolapi.mapper.SchoolMapper;
 import com.example.sdvschoolapi.repository.SchoolRepository;
+import com.example.sdvschoolapi.service.SchoolService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -43,7 +44,7 @@ public class SchoolServiceImpl implements SchoolService {
         School currentSchool = schoolRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("School not found"));
 
         School updatedSchool = schoolMapper.toEntity(schoolDto);
-        updatedSchool.setId(id);
+        // updatedSchool.setId(id);
 
         schoolRepository.save(updatedSchool);
 

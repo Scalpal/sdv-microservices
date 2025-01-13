@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "student-microservice-api",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
