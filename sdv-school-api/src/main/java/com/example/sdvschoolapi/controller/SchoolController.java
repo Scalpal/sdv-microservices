@@ -1,9 +1,7 @@
 package com.example.sdvschoolapi.controller;
 
 import com.example.sdvschoolapi.dto.SchoolDto;
-import com.example.sdvschoolapi.dto.StudentDto;
 import com.example.sdvschoolapi.service.SchoolService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

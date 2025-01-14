@@ -33,8 +33,10 @@ public class StudentController {
     public ResponseEntity<StudentDto> getStudent(@PathVariable String studentId) {
         StudentDto student = studentService.getStudent(studentId);
 
+        String eurekaServerSchoolApiUrl = "http://sdv-school-api/api/school/" + student.getSchoolId();
         String url = "http://localhost:8080/api/school/" + student.getSchoolId();
-        SchoolDto school = restTemplate.getForObject(url, SchoolDto.class);
+
+        SchoolDto school = restTemplate.getForObject(eurekaServerSchoolApiUrl, SchoolDto.class);
 
         if(school != null) {
             student.setSchool(school);
