@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "sdv-auth-service",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -44,7 +44,6 @@ public class SchoolServiceImpl implements SchoolService {
         School currentSchool = schoolRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("School not found"));
 
         School updatedSchool = schoolMapper.toEntity(schoolDto);
-        // updatedSchool.setId(id);
 
         schoolRepository.save(updatedSchool);
 
