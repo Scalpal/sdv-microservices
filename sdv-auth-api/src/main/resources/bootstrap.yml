@@ -1,7 +1,0 @@
-spring:
-  application:
-    name: sdv-auth-api
-  cloud:
-    config:
-      enabled: true
-      uri: http://localhost:9296
