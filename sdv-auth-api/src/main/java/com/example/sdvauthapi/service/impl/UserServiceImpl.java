@@ -21,12 +21,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String register(UserDto userDto) {
-        System.out.println(userDto);
-
         User newUser = userMapper.toEntity(userDto);
         newUser.setPassword(BCrypt.hashpw(newUser.getPassword(), BCrypt.gensalt()));
-
-        System.out.println(newUser);
 
         userRepository.save(newUser);
 

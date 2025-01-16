@@ -1,18 +1,18 @@
 meta {
-  name: Login
+  name: Register
   type: http
-  seq: 5
+  seq: 9
 }
 
 post {
-  url: {{localhost3}}/api/auth/login
+  url: {{localhost2}}/api/auth/register
   body: json
   auth: none
 }
 
 body:json {
   {
-    "email": "Marcel@pignon.com",
+    "email": "Marcel@pigno2n.com",
     "password": "password123"
   }
 }

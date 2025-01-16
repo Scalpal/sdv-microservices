@@ -1,11 +1,15 @@
 meta {
   name: test
   type: http
-  seq: 6
+  seq: 8
 }
 
 get {
-  url: http://localhost:8761/eureka/apps
+  url: {{localhost2}}/api/auth
   body: none
   auth: none
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiJ9.eyJ0eXBlIjoiQUNDRVNTIiwiaWQiOiIxMyIsInN1YiI6IjEzIiwiaWF0IjoxNzM2OTUxNjMwLCJleHAiOjI0OTg2NjgyNjkyODAzODd9.pchlIrHwdmWgH2DmG8yDkKrXsaoN0ea7utmRbf-d1kM
 }

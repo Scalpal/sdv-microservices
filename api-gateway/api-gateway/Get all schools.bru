@@ -1,0 +1,15 @@
+meta {
+  name: Get all schools
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{localhost2}}/api/school
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: 
+}
