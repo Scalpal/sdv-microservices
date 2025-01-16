@@ -1,36 +1,5 @@
 spring:
   application:
     name: api-gateway
-  cloud:
-    gateway:
-      routes:
-        - id: sdv-school-api
-          uri: lb://sdv-school-api
-          predicates:
-            - Path=/api/school/**
-        - id: sdv-student-api
-          uri: lb://sdv-student-api
-          predicates:
-            - Path=/api/student/**
-        - id: sdv-auth-api
-          uri: lb://sdv-auth-api
-          predicates:
-            - Path=/api/auth/**
-
-server:
-  port: 8082
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-    register-with-eureka: true
-    fetch-registry: true
-
-jwt:
-  secret: 6QNR9BfF9PpJWrFBNcCQVYRJUbCpQeRd6hIlXLvYhA4=
-  expiration: 86400
-
-logging:
-  level:
-    org.springframework.cloud.gateway: DEBUG
+  config:
+    import: optional:configserver:http://localhost:8888
